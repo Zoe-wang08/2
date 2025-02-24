@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角函數計算器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>三角函數計算器</h1>
+    
+    <label for="angle">角度 (度): </label>
+    <input type="number" id="angle" placeholder="輸入角度">
+    <button onclick="calculate()">計算</button>
+    
+    <h2>結果：</h2>
+    <p id="sinResult">正弦 (sin): </p>
+    <p id="cosResult">餘弦 (cos): </p>
+    <p id="tanResult">正切 (tan): </p>
+
+    <script>
+        function calculate() {
+            // 取得輸入的角度
+            var angle = parseFloat(document.getElementById('angle').value);
+            
+            // 如果角度無效，返回
+            if (isNaN(angle)) {
+                alert("請輸入有效的數字！");
+                return;
+            }
+            
+            // 將角度轉換為弧度（因為 JavaScript 中的三角函數是基於弧度的）
+            var angleInRadians = angle * Math.PI / 180;
+            
+            // 計算三角函數
+            var sinValue = Math.sin(angleInRadians);
+            var cosValue = Math.cos(angleInRadians);
+            var tanValue = Math.tan(angleInRadians);
+
+            // 顯示結果
+            document.getElementById('sinResult').textContent = "正弦 (sin): " + sinValue.toFixed(4);
+            document.getElementById('cosResult').textContent = "餘弦 (cos): " + cosValue.toFixed(4);
+            document.getElementById('tanResult').textContent = "正切 (tan): " + tanValue.toFixed(4);
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
